@@ -1,0 +1,13 @@
+#!/bin/bash
+#SBATCH --account 
+#SBATCH --partition 
+#SBATCH --nodes 1
+#SBATCH --ntasks 4
+##SBATCH --job-name $thread
+#SBATCH --mem=1g
+#SBATCH --time 5:00
+#SBATCH --output ./log/%x-%j.log
+
+module load PE-gnu/2.0
+cd $W
+pick_relax.py $SI $SC

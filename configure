@@ -1,0 +1,16 @@
+# config file for ROSETTA CM
+## always use absolute path
+
+[Database]
+# database for psiblast search
+psiblast_db =
+# vall database, typically in ROSETTA directory
+vall = /home/ys0/software_local/rosetta_2019.22.60749/tools/fragment_tools/vall.jul19.2011
+
+[Dependencies]
+# root installation directory of psipred
+psipred_path = /home/ys0/software_local/psipred_4.02
+# leave empty if callable
+psiblast = 
+blastp = 
+mafft = 

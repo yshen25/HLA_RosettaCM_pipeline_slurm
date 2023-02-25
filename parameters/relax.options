@@ -1,0 +1,11 @@
+-score:weights ref2015_cart
+
+-relax:dualspace #use dualspace relax protocol
+-relax:minimize_bond_angles #dualspace relax protocol setting
+-set_weights cart_bonded .5 pro_close 0 #score proline ring closure using energy term for all bond lengths (pro_close uses virtual atom NV for proline ring scores)
+-default_max_cycles 200
+
+-nstruct 10
+-out:file:fullatom
+-out:pdb
+-out:path:all final_relax

@@ -1,0 +1,15 @@
+#!/bin/bash
+#SBATCH --account 
+#SBATCH --partition 
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task 16
+#SBATCH --mem=8g
+#SBATCH --time 00:15:00
+#SBATCH --output=/dev/null
+
+module load PE-gnu/2.0
+
+#mpirun $ROSETTA_BIN/fragment_picker.mpi.linuxgccrelease @${1} > ${2}/.frag_picker.log
+#srun $ROSETTA_BIN/fragment_picker.mpi.linuxgccrelease @${1} > ${2}/.frag_picker.log
+srun $ROSETTA_BIN/fragment_picker.cxx11thread.linuxgccrelease -j 16 @${1} > ${2}/.frag_picker.log

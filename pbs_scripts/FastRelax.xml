@@ -1,0 +1,14 @@
+<ROSETTASCRIPTS>
+    <SCOREFXNS>
+        <ScoreFunction name="ref2015_cart" weights="ref2015_cart"/>
+    </SCOREFXNS>
+    <MOVERS>
+        <FastRelax name="fastrelax_fixbb" scorefxn="ref2015_cart">
+            <MoveMap name="faxbb" bb="False" >
+            </MoveMap>
+        </FastRelax>
+    </MOVERS>
+    <PROTOCOLS>
+        <Add mover_name="fastrelax_fixbb"/>
+    </PROTOCOLS>
+</ROSETTASCRIPTS>

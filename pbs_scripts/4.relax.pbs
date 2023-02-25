@@ -1,0 +1,13 @@
+#!/bin/bash
+#SBATCH --account 
+#SBATCH --partition 
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task 16
+#SBATCH --mem=8g
+#SBATCH --time 00:30:00
+#SBATCH --output=/dev/null
+
+module load PE-gnu/2.0
+
+mpirun -n 16 $ROSETTA_BIN/rosetta_scripts.cxx11thread.linuxgccrelease ${1} > ${2}/.fast_relax.log

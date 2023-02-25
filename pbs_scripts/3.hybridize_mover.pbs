@@ -1,0 +1,16 @@
+#!/bin/bash
+#SBATCH --account 
+#SBATCH --partition 
+#SBATCH --nodes=1
+#SBATCH --ntasks=36
+#SBATCH --cpus-per-task=1
+##SBATCH --job-name $thread
+#SBATCH --mem=32g
+#SBATCH --time 1:00:00
+#SBATCH --output=/dev/null
+
+module load PE-gnu/2.0
+
+mpirun -n 36 $ROSETTA_BIN/rosetta_scripts.mpi.linuxgccrelease @${1} > ${2}/.hybrid_mover.log
+#srun $ROSETTA_BIN/rosetta_scripts.mpi.linuxgccrelease @${1} > ${2}/.hybrid_mover.log
+#srun $ROSETTA_BIN/rosetta_scripts.cxx11thread.linuxgccrelease -j 36 @${1} > ${2}/.hybrid_mover.log
